@@ -1,0 +1,18 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': loveIts > 0,
+                'list-group-item-danger': loveIts < 0}">
+
+  <div>
+    <h4>
+      <span [ngStyle]="{color: getColor()}">{{titlePost}}</span>
+      <em class="pull-right" style="font-size: 13px">{{created_at | async | date: 'short'}}</em>
+    </h4>
+  </div>
+
+  <p style="word-wrap: break-word" [ngStyle]="{color: getColor()}">{{contentPost}}</p>
+  <button class="btn btn-success"
+          (click)="loveIt()"> Love it </button>
+  <button class="btn btn-danger" style="margin-left: 5px"
+          (click)="dontLoveIt()"> Don't love it </button>
+
+</li>
